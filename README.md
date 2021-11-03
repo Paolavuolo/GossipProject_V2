@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Gossip Project
 
-Things you may want to cover:
+version : Rails 6.1.4 | Ruby 2.7.4 | Psql 14.0
 
-* Ruby version
+lun. 01 nov. 2021
 
-* System dependencies
+Pendant cette première journée, l'objectif est de créer les pages suivantes :
 
-* Configuration
+    La page d'accueil
+    La page qui présente l'équipe
+    La page de contact
+    Une page bienvenu
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+lin vers la page : http://3000/static_page/Home
