@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceuil</title>
+</head>
+<body>
+    <h1 class="text-center"> Mon super site de gossip !</h1>
+    <p class="text-center">Bienvenue Jeune Moussaillon &#129312;</p> <br/> 
+
+    <p class="text-center" >Voici la liste des potins : </p><br/> 
+
+    	<br> <%= @gossips.each do |gossip| %>
+                <div Align=Center style="flex-direction: row; class="card border-dark mb-3" style="width: 17rem; height: 12rem">
+                    <div class="card-header"><%= gossip.title %></div>
+                    <div class="card-body text-dark">
+                      <h5 class="card-title"><%= gossip.user.first_name %></h5>
+                      <p class="card-text">
+                        <%= link_to "Voir le gossip", gossip_path(gossip.id)%>        
+                      </p>
+                    </div>
+                  </div>
+        <%end%>
+    </p>
+</body>
+</html>
+
