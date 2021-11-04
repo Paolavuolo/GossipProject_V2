@@ -26,15 +26,20 @@ puts "creation de 20 fake potins"
 10.times do
     tag = Tag.create!(title: Faker::Lorem.word)
 end
-puts "creation de tag"
+puts "creation de 10 fake tag"
 
-#25.times do
-    #tag-gossip = TagGossip.create!(tag_id: rand(Tag.all.first.id..Tag.all.last.id), gossip_id: rand(Gossip.all.first.id..Gossip.all.last.id))
-  #end
+25.times do
+    tag_gossip = NnTagGossip.create!(tag_id: rand(Tag.all.first.id..Tag.all.last.id), gossip_id: rand(Gossip.all.first.id..Gossip.all.last.id))
+  end
   
   puts "25 liens tags/gossips créés"
 
 10.times do 
     private_message = PrivateMessage.create!(content: Faker::Lorem.paragraphs(number: 10), sender_id: rand(User.all.first.id..User.all.last.id), recipient_id: rand(User.all.first.id..User.all.last.id))
 end
-puts "creation de messages privés"
+puts "creation de 10 fake messages privés"
+
+20.times do 
+    comment = Comment.create!(content: Faker::Lorem.sentence(word_count: 3, supplemental: false, random_words_to_add: 4), gossip_id: rand(Gossip.all.first.id..Gossip.all.last.id), user_id: rand(User.all.first.id..User.all.last.id) )
+end 
+puts "creation de 20 fake commentaires"

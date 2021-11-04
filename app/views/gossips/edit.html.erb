@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <!-- app/views/gossip/new.html.erb -->
+
+    <%= form_tag url_for(action: 'update'), method: "post" do %> 
+    
+     <p> Modifie ton gossip </p>
+
+      <%= label_tag 'Title' %>
+      <%= text_field_tag 'gossip[title]', @gossip.title %>
+      <br /> <br />
+
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'gossip[content]', @gossip.content %>
+      <br /> <br />
+
+      <%= submit_tag "Mettre a jour" %>
+    
+    <% end %>
+      
+  </body>
+</html>

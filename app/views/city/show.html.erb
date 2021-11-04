@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Page</title>
+</head>
+<body>
+    <br>
+    <h1 style="text-align: center;"> Voici la ville de <%= @city.name%></h1>
+    <br>
+    <p style="text-align: center;">
+       <p style="text-align: center;">Voici la liste des gossips de cette villes :</p>
+       <p style="text-align: center;">
+       <% Gossip.all.each do |gossip|%>
+          <%if gossip.user.city_id == @city.id%>
+              <strong><%= gossip.title%></strong>
+              <br>
+              <em><%= User.find_by(id: gossip.user_id).first_name%></em>
+              <br>
+              <%= gossip.content %>
+              <br> <br>
+            <%end%>
+        <%end%>
+       </p>
+    </p>
+</body>
+</html>

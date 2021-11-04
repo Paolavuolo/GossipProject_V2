@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gossip Page</title>
+</head>
+<body>
+
+    <br>
+    <h1 style="text-align: center;"> Voici le Gossip n°<%=@gossip.id%></h1><br>
+    <p style="text-align: center;"> 
+        <strong><%= @gossip.title %></strong><br><br>
+        <%= @gossip.content %> <br><br>
+        Rédigé le <%= @gossip.created_at%><br><br>
+        Par : <%=User.find(@gossip.user_id).first_name%> <%=User.find(@gossip.user_id).last_name%><br>
+        Originaire de : <%= link_to @city.name, city_path(City.find(@gossip.user.city_id)) %> 
+        <br> la page de l'auteur : <%= link_to "Voir la page de l'auteur", user_path(User.find(@gossip.user_id))%>
+        <br> Modifier le gossip : <%= link_to "Editer", edit_gossip_path(@gossip.id)%>
+        <br><br> <strong>Commentaires</strong>
+        <p style="text-align: center;"> 
+            <% Comment.all.each do |comment| %>
+                 <% if comment.id == @gossip.id %>
+                    <%= comment.content %>
+                    <br>
+                    auteur : <%= User.find(comment.user_id).first_name %> <%= User.find(comment.user_id).last_name %>
+                    <a href="<%=comment_path(@comment.id)%>">Voir le Commentaire</a>
+                <%end%>
+            <%end%>
+        </p>
+        <p style="text-align: center;"><a href="<%=new_comment_path(@comment.id)%>">Commenter</a></p>
+
+        <p style="text-align: center;">
+        <br> <a href="<%=gossip_path(@gossip.id) %>" class="btn btn-danger" data-confirm="êtes vous sur ?" data-method="DELETE" >Supprimer</a>
+        </p>
+    </p>
+</body>
+</html>

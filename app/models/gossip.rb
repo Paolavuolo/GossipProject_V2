@@ -6,4 +6,5 @@ class Gossip < ApplicationRecord
     belongs_to :user #un gossip n'a qu'un seul utilisateur relation N-1
     has_many :nn_tag_gossips
     has_many :tags, through: :nn_tag_gossips #relation N-N avec tag
+    has_many :comments #relation N-1, plusieurs commentaires par gossips
 end

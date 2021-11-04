@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <!-- app/views/gossip/new.html.erb -->
+
+    <%= form_tag url_for(action: 'update'), method: "post" do %>  
+
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'comment[content]', @comment.content %>
+      <br /> <br />
+
+      <%= submit_tag "mettre a jour" %>
+
+    <% end %>
+
+    <!-- affiche les alertes -->
+    <div class="alert alert-secondary" role="alert">
+      <p>commentaire modifié</p>
+    </div>
+    <div class="alert alert-danger" role="alert">
+      <p> Une erreure s'est produite</p>
+      
+    </div>
+  </body>
+</html>

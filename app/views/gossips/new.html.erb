@@ -12,17 +12,13 @@
       <%= text_area_tag 'gossip[content]', @gossip.content %>
       <br /> <br />
 
+      <! --select_tag "tag_id", options_for_select(@tag.collect{|i| [i.title]}) !>
+
       <%= submit_tag "Create Gossip" %>
 
     <% end %>
 
     <!-- affiche les alertes -->
-    <div class="alert alert-secondary" role="alert">
-      <p>Super ton Gossip a été créé</p>
-    </div>
-    <div class="alert alert-danger" role="alert">
-      <p> Une erreure s'est produite</p>
-    </div>
   </body>
 </html>
 
